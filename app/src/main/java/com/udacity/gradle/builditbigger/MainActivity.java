@@ -1,7 +1,9 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
+    public void tellJokeDirectlyFromTheJokeMaker(View view) {
         JokeMaker jokeMaker = new JokeMaker();
         //Toast.makeText(this, jokeMaker.makeAJoke(), Toast.LENGTH_SHORT).show();
         Intent startChildActivityIntent = new Intent(this, com.cicconi.jokeandroidlibrary.MainActivity.class);
@@ -47,5 +49,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(startChildActivityIntent);
     }
 
-
+    public void tellJokeFromBackend(View view) {
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, ""));
+    }
 }

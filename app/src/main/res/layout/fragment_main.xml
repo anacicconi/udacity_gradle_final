@@ -16,11 +16,19 @@
         android:text="@string/instructions" />
 
     <Button
+        android:id="@+id/btn_joke"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
-        android:onClick="tellJoke"
+        android:onClick="tellJokeDirectlyFromTheJokeMaker"
         android:text="@string/button_text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_joke"
+        android:onClick="tellJokeFromBackend"
+        android:text="@string/button_text_backend" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
